@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Buscador from './components/Buscador';
+import ListadoImagenes from './components/ListadoImagenes';
 
 
 function App() {
 
-  const [busqueda, guardarBusqueda] = useState('');
+  const [ busqueda, guardarBusqueda ] = useState('');
+  const [ imagenes, guardarImagenes ] = useState([]);
 
   useEffect(() => {
 
@@ -20,7 +22,7 @@ function App() {
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
 
-        console.log(resultado);
+        guardarImagenes(resultado.hits);
 
       }
       consultarAPI();
@@ -39,7 +41,9 @@ function App() {
       </div>
 
       <div className="row justify-content-center">
-          
+          <ListadoImagenes
+            imagenes={imagenes}
+          />
       </div>
      
     </div>

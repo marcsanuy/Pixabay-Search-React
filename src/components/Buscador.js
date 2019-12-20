@@ -36,7 +36,7 @@ function Buscador({guardarBusqueda}){
                 <div className="form-group col-md-4">
                     <input
                         type="submit"
-                        className="btn btn-lg btn-danger btn-block"
+                        className="btn btn-lg btn-secondary btn-block"
                         value="Buscar"
                     />    
                 </div>
